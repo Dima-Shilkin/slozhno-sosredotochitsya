@@ -1,72 +1,68 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
   margin: 0 auto;
-  min-inline-size: 375px;
-  max-inline-size: 1440px;
+  font-size: var(--text-size);
   background-color: var(--bg-color);
   background-image: var(--bg-image);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  font-size: var(--text-size);
-  
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  min-inline-size: 375px;
+  max-inline-size: 1440px;
 }
 
 .header {
   position: relative;
-  padding: 10px;
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+  padding: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);
   font-family: var(--font);
   font-size: 18px;
-  display: grid;
-  height: 668px;
-  min-height: 100vh;
-  grid-template-rows: 1fr min-content 1fr;
+  block-size: 100vh;
+  min-block-size: 668px;
 }
 
 .decorated-zone::before {
   content: '';
   position: absolute;
-  border-right: 1px solid var(--accent-color);
-  border-top: 1px solid var(--accent-color);
-  height: 25px;
-  width: 25px;
   top: 10px;
   right: 10px;
+  border-top: 1px solid var(--bg-text);
+  border-right: 1px solid var(--bg-text);
+  inline-size: 25px;
+  block-size: 25px;
 }
 
 .decorated-zone::after {
   content: '';
   position: absolute;
-  border-left: 1px solid var(--accent-color);
-  border-bottom: 1px solid var(--accent-color);
-  height: 25px;
-  width: 25px;
   bottom: 10px;
   left: 10px;
+  border-bottom: 1px solid var(--bg-text);
+  border-left: 1px solid var(--bg-text);
+  block-size: 25px;
+  inline-size: 25px;
 }
 
-.header .rec {
+.rec {
   position: absolute;
   top: 2px;
   right: 38px;
-  color: var(--accent-color)
+  color: var(--accent-color);
 }
 
 .header .rec::before {
   content: '';
   position: relative;
-  border-radius: 100%;
-  fill: #ff0070;
-  box-shadow: 0 0 4px 2px var(--accent-color);
-  background-color: var(--accent-color);
-  display: block;
-  inline-size: 9px;
-  block-size: 9px;
   top: 17px;
   left: 42px;
+  display: block;
+  border-radius: 100%;
+  box-shadow: 0 0 4px 2px var(--accent-color);
+  fill: #ff0070;
+  background-color: var(--accent-color);
+  inline-size: 9px;
+  block-size: 9px;
 }
 
 .header__theme-menu {
@@ -80,74 +76,63 @@
   gap: 10px;
 }
 
-.header__theme-menu-item {
-  
-}
-
 .header__theme-menu-button {
-  background-color: inherit;
   border: none;
-  text-transform: lowercase;
-  line-height: 100%;
-  cursor: pointer;
-  font-size: var(--text-size);
   padding: 1.5px 13px 4.5px;
-  color: var(--accent-color);
+  color: var(--bg-text);
+  font-size: var(--text-size);
+  line-height: 100%;
+  text-transform: lowercase;
+  background-color: inherit;
+  cursor: pointer;
 }
 
 .header__theme-menu-button_active {
-  pointer-events: none;
-  outline: 1px solid var(--accent-color);
+  outline: 1px solid var(--bg-text);
   background-color: inherit;
+  pointer-events: none;
 }
 
 .header__title {
-  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   color: var(--logo-color);
-  text-shadow: 4px 4px 0 var(--accent-color);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: 83%;
+  text-shadow: 4px 4px 0 var(--accent-color);
 }
 
 .header__paragraph {
-  line-height: 130%;
-  font-weight: 700;
-  font-size: var(--text-size);
   justify-self: flex-end;
   align-self: center;
   color: var(--header-text);
+  font-weight: 700;
+  font-size: var(--text-size);
+  line-height: 130%;
 }
 
 .title-decor {
   background-color: var(--accent-color);
 }
 
-
-
-
 .content {
-  background-color: var(--bg-color);
-  padding: 40px 10px;
-  font-family: var(--font);
   display: flex;
   flex-direction: column;
-  gap: 50px
-}
-
-.content_text {
-
+  gap: 50px;
+  padding: 40px 10px;
+  font-family: var(--font);
+  background-color: var(--bg-color);
 }
 
 .text-title {
+  margin-block-end: 20px;
+  color: var(--bg-text);
+  font-weight: 700;
   font-size: var(--text-size);
   line-height: 130%;
-  font-weight: 700;
-  color: var(--accent-color);
-  margin-block-end: 20px;
 }
 
 .text-heading {
-  font-size: var(--text-size);
   color: var(--header-text);
+  font-size: var(--text-size);
   line-height: 130%;
 }
 
@@ -163,76 +148,75 @@
   margin-block-end: 20px;
 }
 
+.text-heading_flexible-margin {
+  margin-block-end: 10px;
+}
 
 .paragraph-text {
+  color: var(--content-text-color);
   line-height: 130%;
-  color: var(--content-color-text);
 }
 
 .link {
   text-decoration: none;
   text-shadow: 2px 2px 0 var(--accent-color);
   cursor: pointer;
-
-}
-
-.section-images {
-  
 }
 
 .about__logo-image {
+  justify-self: center;
   object-fit: cover;
   object-position: center;
-  width: 100%;
-
+  max-inline-size: 100%;
+  max-block-size: 100%; 
 }
 
 .images-lots {
   display: grid;
-  grid-template-rows: 142px 355px 237px 355px 237px;
-  gap: 10px
+  gap: 10px;
+  contain: inline-size;
 }
 
 .footer {
   position: relative;
   display: flex;
-  min-height: 668px;
-  height: 100vh;
-  background-color: var(--bg-color);
-  padding: 10px;
   justify-content: center;
   align-items: center;
+  padding: 10px;
+  background-color: var(--bg-color);
+  min-block-size: 668px;
+  block-size: 100vh;
 }
 
 .footer-title {
-  line-height: 700;
-  line-height: 83%;
   color: var(--logo-color);
-  text-shadow: 2px 2px 0  var(--accent-color);
   font-family: var(--font);
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 700;
+  line-height: 83%;
+  text-shadow: 2px 2px 0  var(--accent-color);
 }
 
 .decorated-zone::before {
   content: '';
   position: absolute;
-  border-right: 1px solid var(--accent-color);
-  border-top: 1px solid var(--accent-color);
-  height: 25px;
-  width: 25px;
   top: 10px;
   right: 10px;
+  border-top: 1px solid var(--bg-text);
+  border-right: 1px solid var(--bg-text);
+  block-size: 25px;
+  inline-size: 25px;
 }
 
 .decorated-zone::after {
   content: '';
   position: absolute;
-  border-left: 1px solid var(--accent-color);
-  border-bottom: 1px solid var(--accent-color);
-  height: 25px;
-  width: 25px;
   bottom: 10px;
   left: 10px;
+  border-bottom: 1px solid var(--bg-text);
+  border-left: 1px solid var(--bg-text);
+  block-size: 25px;
+  inline-size: 25px;
 }
 
 .link:hover {
@@ -244,7 +228,7 @@
 }
 
 .link:focus-visible {
-  outline: 1px solid var(--accent-color);
+  outline: 1px solid var(--content-text-color);
 }
 
 .header__theme-menu-button:hover {
@@ -261,20 +245,11 @@
   text-underline-offset: 5px;
 }
 
-
-
-
-
-
 @media (width >= 768px) {
-  .header {
-    padding: 20px;
-  }
-  
   .header__title {
     position: relative;
-    inset-inline-end: 20px;
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    inset-inline-end: 20px;
   }
 
   .header__paragraph {
@@ -292,34 +267,96 @@
     left: 20px;
   }
 
-  .header div {
+  .rec {
     top: 12px;
     right: 48px;
   }
 
   .content {
+    gap: 80px;
     padding: 60px 20px;
+  }
+
+  .content_text {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+  }
+
+  .text-heading_flexible-margin {
+    margin-block-end: 20px;
+  }
+
+  .tablet {
+    width: 150px;
+  }
+
+  .images-lots {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .about__logo-image {
+    block-size: 100%;
+    inline-size: 100%;
+  }
+
+  .about__logo-image:nth-child(1) {
+    grid-column: span 2;
+  }
+
+  .about__logo-image:nth-child(2) {
+    grid-row: span 2;
+  }
+
+  .about__logo-image:nth-child(3) {
+    grid-row: span 2;
+  }
+
+  .about__logo-image:nth-child(5) {
+    grid-column: span 2;
   }
 }
 
-
-
-
-
 @media (width >= 1024px) {
+  .header__title {
+    text-shadow: 4px 4px 0 var(--shadow-title);
+  }
+
   .header__paragraph {
     block-size: 71px;
     inline-size: 491px;
   }
 
   .header__theme-menu {
-    align-self: flex-start;
     justify-self: center;
+    align-self: flex-start;
   }
-  
+
   .header__theme-menu-list {
     display: flex;
     flex-direction: row;
-    
+  }
+
+  .content_text {
+    display: grid;
+    grid-template-columns: 315px 2fr;
+    gap: 20px;
+  }
+
+  .tablet {
+    inline-size: 315px;
+  }
+
+  .concentration {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .footer-title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    text-shadow: 2px 2px 0  var(--shadow-title);
   }
 }
