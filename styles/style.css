@@ -168,7 +168,7 @@
   object-fit: cover;
   object-position: center;
   max-inline-size: 100%;
-  max-block-size: 100%; 
+  max-block-size: 100%;
 }
 
 .images-lots {
@@ -192,7 +192,7 @@
   color: var(--logo-color);
   font-family: var(--font);
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-  line-height: 700;
+  font-weight: 700;
   line-height: 83%;
   text-shadow: 2px 2px 0  var(--accent-color);
 }
